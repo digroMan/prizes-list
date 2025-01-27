@@ -1,11 +1,14 @@
 import './css/style.css';
-import './scss/helpers.scss'
+import './scss/helpers.scss';
 import './scss/mixin.scss';
 import './scss/fonts.scss';
-import './scss/style.scss'; 
+import './scss/style.scss';
+/* eslint-disable */
 import 'swiper/scss';
+ /* eslint-disable */
 import 'swiper/scss/virtual';
-import 'swiper/scss/autoplay'
+ /* eslint-disable */
+import 'swiper/scss/autoplay';
 import './js/app';
 
 import './scss/main.scss';
