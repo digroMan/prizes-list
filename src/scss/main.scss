@@ -1,0 +1,68 @@
+@import './mixin.scss';
+
+.wheel-fortune {
+
+		// .wheel-fortune__container-box
+
+		&__container-box {
+      @include nsm {
+        font-weight: 900;
+      }
+		}
+
+		// .wheel-fortune__swiper-container
+
+		&__swiper-container {
+      @include nsm {
+        width: 50vw;
+        height: 200vw;
+        margin: auto;
+        overflow: hidden;
+        margin-bottom: 10vw;
+      }
+		}
+
+		// .wheel-fortune__swiper-wrapper
+
+		&__swiper-wrapper {
+      @include nsm {
+        transition-timing-function: linear !important;
+      }
+		}
+    
+		// .wheel-fortune__swiper-slide
+    
+		&__swiper-slide {
+      @include nsm {
+        animation: run-items infinite linear 5s;
+      }
+		}
+
+    // .wheel-fortune__img
+
+		&__img {
+      @include nsm {
+        width: 100%;
+      }
+		}
+
+    // .wheel-fortune__button
+
+		&__button {
+      @include nsm {
+        width: fit-content;
+        display: block;
+        background-color: #9e9eed;
+        border-radius: 4.4vw;
+        padding: 3.2vw 5.2vw;
+        font-size: 5.2vw;
+        color: #fff;
+        font-weight: 500;
+        margin: auto;
+      }
+		}
+
+    @keyframes run-items {
+      to{transform: translateY(-1300%);} 
+    }
+}

@@ -1,0 +1,157 @@
+{
+   "prizes_list":[
+      {
+         "id":"c7b28285-eb5b-431a-b59d-28a484ef5561",
+         "img":"https://storage.yandexcloud.net/ezflow-bucket/rewards/15.webp",
+         "name":"Ключ за 15 рублей",
+         "description":"Получите случайный Steam-ключ, стоимостью до 15 рублей. Идеально для любителей сюрпризов!",
+         "weight":null,
+         "reward":null,
+         "cost":null
+      },
+      {
+         "id":"94393816-4e64-4cb4-9929-2ad6682de883",
+         "img":"https://storage.yandexcloud.net/ezflow-bucket/rewards/20.webp",
+         "name":"Ключ за 20 рублей",
+         "description":"Попробуйте свою удачу! Вас ждет случайный ключ для Steam, стоимостью до 20 рублей.",
+         "weight":null,
+         "reward":null,
+         "cost":null
+      },
+      {
+         "id":"3acd3b31-82f6-4bbe-9678-62b27321e6ee",
+         "img":"https://storage.yandexcloud.net/ezflow-bucket/rewards/25.webp",
+         "name":"Ключ за 25 рублей",
+         "description":"Вы выиграли случайный ключ для Steam, подходящий для всех любителей бюджетных игр.",
+         "weight":null,
+         "reward":null,
+         "cost":null
+      },
+      {
+         "id":"54065037-73a6-4ea8-8aad-d204a5f5011c",
+         "img":"https://storage.yandexcloud.net/ezflow-bucket/rewards/30.webp",
+         "name":"Ключ за 30 рублей",
+         "description":"Случайный Steam-ключ стоимостью до 30 рублей. Отличный вариант, чтобы разнообразить коллекцию игр.",
+         "weight":null,
+         "reward":null,
+         "cost":null
+      },
+      {
+         "id":"d8e5034a-aa64-46a0-b513-8e4986eef95f",
+         "img":"https://storage.yandexcloud.net/ezflow-bucket/rewards/30-coin.webp ",
+         "name":"30 монет",
+         "description":"Вы получаете 30 монет, которые можно потратить на открытие новых сундуков!",
+         "weight":null,
+         "reward":null,
+         "cost":null
+      },
+      {
+         "id":"b3d47d4b-abed-4c22-9b34-c10029a40f5c",
+         "img":"https://storage.yandexcloud.net/ezflow-bucket/rewards/50.webp",
+         "name":"Ключ за 50 рублей",
+         "description":"Случайный Steam-ключ, который гарантированно стоит до 50 рублей. Начните приключение прямо сейчас!",
+         "weight":null,
+         "reward":null,
+         "cost":null
+      },
+      {
+         "id":"0e623dfc-f1b0-4e82-b8f4-f9a6bfa33f31",
+         "img":"https://storage.yandexcloud.net/ezflow-bucket/rewards/70.webp",
+         "name":"Ключ за 70 рублей",
+         "description":"Выиграйте игру стоимостью до 70 рублей! Настоящая находка для геймеров.",
+         "weight":null,
+         "reward":null,
+         "cost":null
+      },
+      {
+         "id":"a0e72449-c068-424c-a434-516d4772541b",
+         "img":"https://storage.yandexcloud.net/ezflow-bucket/rewards/100.webp",
+         "name":"Ключ за 100 рублей",
+         "description":"Случайный ключ для Steam с ценой до 100 рублей. Может быть, это будет ваша следующая любимая игра!",
+         "weight":null,
+         "reward":null,
+         "cost":null
+      },
+      {
+         "id":"8629508a-253f-44d7-8223-34477a8de639",
+         "img":"https://storage.yandexcloud.net/ezflow-bucket/rewards/free-spin.webp",
+         "name":"Фриспин",
+         "description":"Бесплатное открытие сундука! Еще один шанс выиграть ценные Steam-ключи.",
+         "weight":null,
+         "reward":null,
+         "cost":null
+      },
+      {
+         "id":"eda26438-5cac-4ef9-816b-fb46ccfaebea",
+         "img":"https://storage.yandexcloud.net/ezflow-bucket/rewards/150.webp",
+         "name":"Ключ за 150 рублей",
+         "description":"Случайный ключ для Steam стоимостью до 150 рублей. Отличный способ найти новую игру.",
+         "weight":null,
+         "reward":null,
+         "cost":null
+      },
+      {
+         "id":"3ae31a16-c9ba-4734-b84d-7a3361262a5b",
+         "img":"https://storage.yandexcloud.net/ezflow-bucket/rewards/200.webp",
+         "name":"Ключ за 200 рублей",
+         "description":"Steam-ключ с ценой до 200 рублей. Повышайте уровень ваших впечатлений от игр!",
+         "weight":null,
+         "reward":null,
+         "cost":null
+      },
+      {
+         "id":"e0c29e2f-d692-4c13-a58f-1203deef0453",
+         "img":"https://storage.yandexcloud.net/ezflow-bucket/rewards/300.webp",
+         "name":"Ключ за 300 рублей",
+         "description":"Случайный ключ для Steam стоимостью до 300 рублей. Призы с такими ценами действительно радуют!",
+         "weight":null,
+         "reward":null,
+         "cost":null
+      },
+      {
+         "id":"9306f887-012b-4f5d-947b-c8807c98c06c",
+         "img":"https://storage.yandexcloud.net/ezflow-bucket/rewards/500.webp",
+         "name":"Ключ за 500 рублей",
+         "description":"Вы получаете ключ для Steam стоимостью до 500 рублей. Это шанс на отличную AAA-игру!",
+         "weight":null,
+         "reward":null,
+         "cost":null
+      },
+      {
+         "id":"31ef1b3a-e20e-49df-9445-2f3fab7e9d00",
+         "img":"https://storage.yandexcloud.net/ezflow-bucket/rewards/700.webp",
+         "name":"Ключ за 700 рублей",
+         "description":"Случайная игра для Steam, стоимостью до 700 рублей. Улов мечты для геймера!",
+         "weight":null,
+         "reward":null,
+         "cost":null
+      },
+      {
+         "id":"5f8cff60-f4af-400c-85c0-dd8645013258",
+         "img":"https://storage.yandexcloud.net/ezflow-bucket/rewards/1000.webp",
+         "name":"Ключ за 1000 рублей",
+         "description":"Случайный ключ для Steam стоимостью до 1000 рублей. Может быть, это ваша следующая топ-игра?",
+         "weight":null,
+         "reward":null,
+         "cost":null
+      },
+      {
+         "id":"aea08cce-0219-4c81-957a-47eee8488b25",
+         "img":"https://storage.yandexcloud.net/ezflow-bucket/rewards/2000.webp",
+         "name":"Ключ за 2000 рублей",
+         "description":"Выиграйте ключ для Steam стоимостью до 2000 рублей! Настоящий подарок для любителей топовых игр.",
+         "weight":null,
+         "reward":null,
+         "cost":null
+      },
+      {
+         "id":"405d8e3e-5e35-4403-bff0-db7be22fb561",
+         "img":"https://storage.yandexcloud.net/ezflow-bucket/rewards/5000.webp",
+         "name":"Ключ за 5000 рублей",
+         "description":"Случайная премиальная игра для Steam стоимостью до 5000 рублей. Легендарный шанс для настоящих геймеров!",
+         "weight":null,
+         "reward":null,
+         "cost":null
+      }
+   ]
+}
