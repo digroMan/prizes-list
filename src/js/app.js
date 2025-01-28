@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
       this.selectorSwiperImg = data.selectorSwiperImg;
       this.prizesListStorage = [];
       this.arrayAllId = [];
+      this.startAnimation = data.selectorStartAnimation;
     }
 
     // Создает хранилище из элементов слайдера
@@ -48,6 +49,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Добавляет ID в общий массив с ID
 
     addIdItem(id) { this.arrayAllId.push(id); }
+
+    addStartAnimation() {
+      this.prizesListStorage.forEach((item) => item.classList.add(this.startAnimation));
+    }
   }
 
   // Класс для создания елементов слайдера
@@ -59,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
       selectorSwiperSlide: 'wheel-fortune__swiper-slide',
       selectorSwiperImg: 'wheel-fortune__img',
       winningId: '', // данное свойство должно содержать id товара, который выйграл пользователь
+      selectorStartAnimation: 'wheel-fortune__swiper-slide_start-animation',
     },
   );
 
@@ -87,5 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   BTTN_WHEEL_FORTUNE.addEventListener('click', () => {
     console.log(SWIPER_WHELL_FORTUNE);
+    SWIPER_WHELL_FORTUNE.allowTouchMove = false;
+    WHELL_FORTUNE.addStartAnimation();
   });
 });

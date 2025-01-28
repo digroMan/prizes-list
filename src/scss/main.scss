@@ -7,6 +7,7 @@
 		&__container-box {
       @include nsm {
         font-weight: 900;
+        position: relative;
       }
 		}
 
@@ -15,10 +16,9 @@
 		&__swiper-container {
       @include nsm {
         width: 50vw;
-        height: 200vw;
+        height: 100vh;
         margin: auto;
         overflow: hidden;
-        margin-bottom: 10vw;
       }
 		}
 
@@ -26,7 +26,7 @@
 
 		&__swiper-wrapper {
       @include nsm {
-        transition-timing-function: linear !important;
+        // transition-timing-function: linear !important;
       }
 		}
     
@@ -34,7 +34,18 @@
     
 		&__swiper-slide {
       @include nsm {
-        animation: run-items infinite linear 5s;
+      }
+      
+      // .wheel-fortune__swiper-slide_start-animation
+
+      &_start-animation{
+        @include nsm {
+          animation: run-items infinite ease-in 2.5s;
+        }
+
+        @keyframes run-items {
+          to{transform: translateY(-1500%);} 
+        }
       }
 		}
 
@@ -50,19 +61,17 @@
 
 		&__button {
       @include nsm {
-        width: fit-content;
-        display: block;
         background-color: #9e9eed;
         border-radius: 4.4vw;
         padding: 3.2vw 5.2vw;
         font-size: 5.2vw;
         color: #fff;
         font-weight: 500;
-        margin: auto;
+        position: absolute;
+        bottom: 30vw;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        z-index: 1;
       }
 		}
-
-    @keyframes run-items {
-      to{transform: translateY(-1300%);} 
-    }
 }
