@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
   WHELL_FORTUNE.addSlidesInSlider();
 
   /* eslint-disable */
-  let currentSpeed = 500; // Начальная задержка смены слайдов в миллисекундах
+  let initialSpeed = 500; // Начальная задержка смены слайдов в миллисекундах
   let minSpeed = 100; // Минимальная задржка между сменой слайдов в миллисекундах
   let maxSpeed = 1000; // Максимальная задержка при смене слайда
   
@@ -84,26 +84,26 @@ document.addEventListener('DOMContentLoaded', () => {
     direction: 'vertical',
     slidesPerView: 4,
     loop: true,
-    speed: currentSpeed,
+    speed: initialSpeed,
     centeredSlides: true,
   });
 
   // Ускорение свайпера
   function boostSlideSpeed() {
-    if (currentSpeed > minSpeed) {
-        currentSpeed -= 50; // На сколько уменьшается задержка 
-        SWIPER_WHELL_FORTUNE.params.speed = currentSpeed;
+    if (initialSpeed > minSpeed) {
+        initialSpeed -= 50; // На сколько уменьшается задержка 
+        SWIPER_WHELL_FORTUNE.params.speed = initialSpeed;
     }
   }
 
   // Замедление и остановка свайпера
   function slowdownSlideSpeed() {
-    if (currentSpeed < maxSpeed) {
-        currentSpeed += 50; // На сколько увеличивается задержка 
-        SWIPER_WHELL_FORTUNE.params.speed = currentSpeed;
+    if (initialSpeed < maxSpeed) {
+        initialSpeed += 50; // На сколько увеличивается задержка 
+        SWIPER_WHELL_FORTUNE.params.speed = initialSpeed;
     }
 
-    if (currentSpeed === maxSpeed) {
+    if (initialSpeed === maxSpeed) {
       SWIPER_WHELL_FORTUNE.autoplay.stop(); 
     }
   }
