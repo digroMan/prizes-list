@@ -5,9 +5,7 @@ import './scss/fonts.scss';
 import './scss/style.scss';
 /* eslint-disable */
 import 'swiper/scss';
- /* eslint-disable */
 import 'swiper/scss/virtual';
- /* eslint-disable */
 import 'swiper/scss/autoplay';
 import './js/app';
 

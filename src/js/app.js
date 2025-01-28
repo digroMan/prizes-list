@@ -49,9 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     addIdItem(id) { this.arrayAllId.push(id); }
 
-    addLinearAnimation() {
+    addClassesAnimation() {
       this.swiperWrapper.classList.add(this.linearAnimation, this.animatedSlide);
-      // this.prizesListStorage.forEach((item) => item.classList.add(this.animatedSlide));
+    }
+
+    getPrizesListStorage() {
+      return this.prizesListStorage;
     }
   }
 
@@ -73,10 +76,12 @@ document.addEventListener('DOMContentLoaded', () => {
   WHELL_FORTUNE.addSlidesInSlider();
 
   /* eslint-disable */
-  let initialSpeed = 500; // Начальная задержка смены слайдов в миллисекундах
+  let initialSpeed = 150; // Начальная задержка смены слайдов в миллисекундах
   let minSpeed = 100; // Минимальная задржка между сменой слайдов в миллисекундах
-  let maxSpeed = 1000; // Максимальная задержка при смене слайда
-  
+  let maxSpeed = 600; // Максимальная задержка при смене слайда
+  // В строку ниже необходимо вставить id подарка
+  let prize = 'c7b28285-eb5b-431a-b59d-28a484ef5561';
+
   // Инициализация работы слайдера
 
   const SWIPER_WHELL_FORTUNE = new Swiper('.wheel-fortune__swiper-container', {
@@ -84,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     direction: 'vertical',
     // Управление количеством слайдов на странице
     slidesPerView: 3.5,
+    spaceBetween: 35,
     loop: true,
     speed: initialSpeed,
     centeredSlides: true,
@@ -92,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Ускорение свайпера
   function boostSlideSpeed() {
     if (initialSpeed > minSpeed) {
-        initialSpeed -= 50; // На сколько уменьшается задержка 
+        initialSpeed -= 100; // На сколько уменьшается задержка 
         SWIPER_WHELL_FORTUNE.params.speed = initialSpeed;
     }
   }
@@ -112,7 +118,18 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateParamsSwiper() {
     SWIPER_WHELL_FORTUNE.params.autoplay.disableOnInteraction = false;
     SWIPER_WHELL_FORTUNE.params.autoplay.delay = 0;
+    SWIPER_WHELL_FORTUNE.params.autoplay.reverseDirection = true,
     SWIPER_WHELL_FORTUNE.autoplay.start();    
+  }
+
+  function changeSlide() {
+    const isPrize = this.slides[this.activeIndex].dataset.id === prize; 
+    if(!isPrize) {
+      this.slidePrev(initialSpeed)
+      initialSpeed += 100; 
+      SWIPER_WHELL_FORTUNE.params.speed = initialSpeed;
+    };
+    if(isPrize) SWIPER_WHELL_FORTUNE.off('slideChangeTransitionEnd', changeSlide);
   }
 
   BTTN_WHEEL_FORTUNE.addEventListener('click', () => {
@@ -126,10 +143,8 @@ document.addEventListener('DOMContentLoaded', () => {
       SWIPER_WHELL_FORTUNE.on('slideChangeTransitionStart', slowdownSlideSpeed);
       SWIPER_WHELL_FORTUNE.on('autoplayStop', () => {
         SWIPER_WHELL_FORTUNE.off('slideChangeTransitionStart', slowdownSlideSpeed);
-        
-        // В строку ниже необходимо вставить индекс слайда, который выйграл 
-        SWIPER_WHELL_FORTUNE.slideTo(5, maxSpeed) 
+        SWIPER_WHELL_FORTUNE.on('slideChangeTransitionEnd', changeSlide);
       })
-    }, 5000)
+    }, 2500)
   });
 });

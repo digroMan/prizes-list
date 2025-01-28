@@ -40,11 +40,10 @@
     
 		&__swiper-slide {
       @include nsm {
-        padding-bottom: 5vw;
       }
       
       &.swiper-slide-active{
-        transform: scale(1.35);
+        transform: scale(1.15);
       }
 		}
 
@@ -67,7 +66,7 @@
         color: #fff;
         font-weight: 500;
         position: absolute;
-        bottom: 30vw;
+        bottom: 15vw;
         transform: translate(-50%, -50%);
         left: 50%;
         z-index: 1;
