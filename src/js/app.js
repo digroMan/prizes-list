@@ -82,7 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const SWIPER_WHELL_FORTUNE = new Swiper('.wheel-fortune__swiper-container', {
     modules: [Virtual, Autoplay],
     direction: 'vertical',
-    slidesPerView: 4,
+    // Управление количеством слайдов на странице
+    slidesPerView: 3,
     loop: true,
     speed: initialSpeed,
     centeredSlides: true,
