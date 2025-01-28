@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* eslint-disable */
   let initialSpeed = 500; // Начальная задержка смены слайдов в миллисекундах
-  let minSpeed = 100; // Минимальная задржка между сменой слайдов в миллисекундах
+  let minSpeed = 150; // Минимальная задржка между сменой слайдов в миллисекундах
   let maxSpeed = 1000; // Максимальная задержка при смене слайда
   
   // Инициализация работы слайдера
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     modules: [Virtual, Autoplay],
     direction: 'vertical',
     // Управление количеством слайдов на странице
-    slidesPerView: 3,
+    slidesPerView: 3.5,
     loop: true,
     speed: initialSpeed,
     centeredSlides: true,
