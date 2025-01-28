@@ -2,10 +2,8 @@ import { Swiper } from 'swiper';
 import { Autoplay, Virtual } from 'swiper/modules';
 import JSON_PRIZES_LIST from './prizes_list.json';
 
-// TODO: write your code here
 document.addEventListener('DOMContentLoaded', () => {
   const BTTN_WHEEL_FORTUNE = document.querySelector('.wheel-fortune__button');
-  // const SLIDES = document.querySelectorAll('.wheel-fortune__swiper-slide');
 
   class WheelFortune {
     constructor(data) {
@@ -15,7 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
       this.selectorSwiperImg = data.selectorSwiperImg;
       this.prizesListStorage = [];
       this.arrayAllId = [];
-      this.startAnimation = data.selectorStartAnimation;
+      this.linearAnimation = data.selectorLinearAnimation;
+      this.animatedSlide = data.selectorAnimatedSlide;
     }
 
     // Создает хранилище из элементов слайдера
@@ -50,8 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     addIdItem(id) { this.arrayAllId.push(id); }
 
-    addStartAnimation() {
-      this.prizesListStorage.forEach((item) => item.classList.add(this.startAnimation));
+    addLinearAnimation() {
+      this.swiperWrapper.classList.add(this.linearAnimation, this.animatedSlide);
+      // this.prizesListStorage.forEach((item) => item.classList.add(this.animatedSlide));
     }
   }
 
@@ -64,36 +64,71 @@ document.addEventListener('DOMContentLoaded', () => {
       selectorSwiperSlide: 'wheel-fortune__swiper-slide',
       selectorSwiperImg: 'wheel-fortune__img',
       winningId: '', // данное свойство должно содержать id товара, который выйграл пользователь
-      selectorStartAnimation: 'wheel-fortune__swiper-slide_start-animation',
+      selectorLinearAnimation: 'wheel-fortune__swiper-wrapper_transition-linear',
+      selectorAnimatedSlide: 'wheel-fortune__swiper-wrapper_animated',
     },
   );
 
   WHELL_FORTUNE.createListStorage();
   WHELL_FORTUNE.addSlidesInSlider();
 
+  /* eslint-disable */
+  let currentSpeed = 500; // Начальная задержка смены слайдов в миллисекундах
+  let minSpeed = 100; // Минимальная задржка между сменой слайдов в миллисекундах
+  let maxSpeed = 1000; // Максимальная задержка при смене слайда
+  
   // Инициализация работы слайдера
 
   const SWIPER_WHELL_FORTUNE = new Swiper('.wheel-fortune__swiper-container', {
     modules: [Virtual, Autoplay],
-    breakpoints: {
-      320: {
-        direction: 'vertical',
-        spaceBetween: 25,
-        slidesPerView: 4,
-        loop: true,
-        autoplay: {
-          disableOnInteraction: false,
-          delay: 0,
-        },
-        speed: 7000,
-        // allowTouchMove: false,
-      },
-    },
+    direction: 'vertical',
+    slidesPerView: 4,
+    loop: true,
+    speed: currentSpeed,
+    centeredSlides: true,
   });
 
+  // Ускорение свайпера
+  function boostSlideSpeed() {
+    if (currentSpeed > minSpeed) {
+        currentSpeed -= 50; // На сколько уменьшается задержка 
+        SWIPER_WHELL_FORTUNE.params.speed = currentSpeed;
+    }
+  }
+
+  // Замедление и остановка свайпера
+  function slowdownSlideSpeed() {
+    if (currentSpeed < maxSpeed) {
+        currentSpeed += 50; // На сколько увеличивается задержка 
+        SWIPER_WHELL_FORTUNE.params.speed = currentSpeed;
+    }
+
+    if (currentSpeed === maxSpeed) {
+      SWIPER_WHELL_FORTUNE.autoplay.stop(); 
+    }
+  }
+
+  function updateParamsSwiper() {
+    SWIPER_WHELL_FORTUNE.params.autoplay.disableOnInteraction = false;
+    SWIPER_WHELL_FORTUNE.params.autoplay.delay = 0;
+    SWIPER_WHELL_FORTUNE.autoplay.start();    
+  }
+
   BTTN_WHEEL_FORTUNE.addEventListener('click', () => {
-    console.log(SWIPER_WHELL_FORTUNE);
-    SWIPER_WHELL_FORTUNE.allowTouchMove = false;
-    WHELL_FORTUNE.addStartAnimation();
+    updateParamsSwiper();
+    SWIPER_WHELL_FORTUNE.on('slideChangeTransitionStart', boostSlideSpeed);
+
+    // Имитация запроса на сервер
+    setTimeout(() => {
+      // То что нужно выполнить при получении ответа сервера
+      SWIPER_WHELL_FORTUNE.off("slideChangeTransitionStart", boostSlideSpeed);
+      SWIPER_WHELL_FORTUNE.on('slideChangeTransitionStart', slowdownSlideSpeed);
+      SWIPER_WHELL_FORTUNE.on('autoplayStop', () => {
+        SWIPER_WHELL_FORTUNE.off('slideChangeTransitionStart', slowdownSlideSpeed);
+        
+        // В строку ниже необходимо вставить индекс слайда, который выйграл 
+        SWIPER_WHELL_FORTUNE.slideTo(5, maxSpeed) 
+      })
+    }, 5000)
   });
 });

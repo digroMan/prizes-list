@@ -18,7 +18,6 @@
         width: 50vw;
         height: 100vh;
         margin: auto;
-        overflow: hidden;
       }
 		}
 
@@ -26,7 +25,14 @@
 
 		&__swiper-wrapper {
       @include nsm {
-        // transition-timing-function: linear !important;
+      }
+
+      // .wheel-fortune__swiper-wrapper_transition-linear
+
+      &_transition-linear{
+        @include nsm {
+          transition-timing-function: linear !important;
+        }
       }
 		}
     
@@ -34,18 +40,11 @@
     
 		&__swiper-slide {
       @include nsm {
+        padding-bottom: 5vw;
       }
       
-      // .wheel-fortune__swiper-slide_start-animation
-
-      &_start-animation{
-        @include nsm {
-          animation: run-items infinite ease-in 2.5s;
-        }
-
-        @keyframes run-items {
-          to{transform: translateY(-1500%);} 
-        }
+      &.swiper-slide-active{
+        transform: scale(1.35);
       }
 		}
 
@@ -64,7 +63,7 @@
         background-color: #9e9eed;
         border-radius: 4.4vw;
         padding: 3.2vw 5.2vw;
-        font-size: 5.2vw;
+        font-size: 4.2vw;
         color: #fff;
         font-weight: 500;
         position: absolute;
