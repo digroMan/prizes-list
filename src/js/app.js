@@ -56,6 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
     getPrizesListStorage() {
       return this.prizesListStorage;
     }
+
+    getSwiperWrapper() {
+      return this.swiperWrapper;
+    }
   }
 
   // Класс для создания елементов слайдера
@@ -76,11 +80,31 @@ document.addEventListener('DOMContentLoaded', () => {
   WHELL_FORTUNE.addSlidesInSlider();
 
   /* eslint-disable */
-  let initialSpeed = 150; // Начальная задержка смены слайдов в миллисекундах
+  let initialSpeed = 200; // Начальная задержка смены слайдов в миллисекундах
   let minSpeed = 100; // Минимальная задржка между сменой слайдов в миллисекундах
   let maxSpeed = 600; // Максимальная задержка при смене слайда
   // В строку ниже необходимо вставить id подарка
-  let prize = 'c7b28285-eb5b-431a-b59d-28a484ef5561';
+  let prize = '9306f887-012b-4f5d-947b-c8807c98c06c';
+
+  // ДУБЛИРОВАНИЕ начальных значений в случае повторного клика на кнопку запуска колеса фортуны
+
+  function getInitialValues() {
+    initialSpeed = 200;
+    minSpeed = 100;
+    maxSpeed = 600;
+    SWIPER_WHELL_FORTUNE.params.speed = initialSpeed;
+  }
+
+  function banEvent(ban){
+    if(ban){
+      BTTN_WHEEL_FORTUNE.classList.add('wheel-fortune__button_ban-event')
+      WHELL_FORTUNE.getSwiperWrapper().classList.add('wheel-fortune__swiper-wrapper_ban-event')
+    }
+    if(!ban){
+      BTTN_WHEEL_FORTUNE.classList.remove('wheel-fortune__button_ban-event');
+      WHELL_FORTUNE.getSwiperWrapper().classList.remove('wheel-fortune__swiper-wrapper_ban-event')
+    }
+  }
 
   // Инициализация работы слайдера
 
@@ -129,7 +153,11 @@ document.addEventListener('DOMContentLoaded', () => {
       initialSpeed += 100; 
       SWIPER_WHELL_FORTUNE.params.speed = initialSpeed;
     };
-    if(isPrize) SWIPER_WHELL_FORTUNE.off('slideChangeTransitionEnd', changeSlide);
+    if(isPrize) {
+      SWIPER_WHELL_FORTUNE.off('slideChangeTransitionEnd', changeSlide)
+      getInitialValues();
+      banEvent(false);
+    };
   }
 
   BTTN_WHEEL_FORTUNE.addEventListener('click', () => {
@@ -142,6 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
       SWIPER_WHELL_FORTUNE.off("slideChangeTransitionStart", boostSlideSpeed);
       SWIPER_WHELL_FORTUNE.on('slideChangeTransitionStart', slowdownSlideSpeed);
       SWIPER_WHELL_FORTUNE.on('autoplayStop', () => {
+        banEvent(true);
         SWIPER_WHELL_FORTUNE.off('slideChangeTransitionStart', slowdownSlideSpeed);
         SWIPER_WHELL_FORTUNE.on('slideChangeTransitionEnd', changeSlide);
       })

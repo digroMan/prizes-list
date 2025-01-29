@@ -16,7 +16,7 @@
 		&__swiper-container {
       @include nsm {
         width: 40vw;
-        height: 100vh;
+        height: 100svh;
         margin: auto;
       }
 		}
@@ -32,6 +32,14 @@
       &_transition-linear{
         @include nsm {
           transition-timing-function: linear !important;
+        }
+      }
+
+      // .wheel-fortune__swiper-wrapper_ban-event
+
+      &_ban-event{
+        @include nsm {
+          pointer-events: none;
         }
       }
 		}
@@ -66,10 +74,18 @@
         color: #fff;
         font-weight: 500;
         position: absolute;
-        bottom: 15vw;
+        bottom: 5vw;
         transform: translate(-50%, -50%);
         left: 50%;
         z-index: 1;
+      }
+
+      // .wheel-fortune__button_ban-event
+
+      &_ban-event{
+        @include nsm {
+          pointer-events: none;
+        }
       }
 		}
 }
